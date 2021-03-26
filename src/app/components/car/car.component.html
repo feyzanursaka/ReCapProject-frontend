@@ -1,25 +1,14 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<table *ngIf="dataLoaded!=false" class="table">
+<table class="table">
   <thead>
-    <tr>
       <th>Id</th>
-      <th>Araba</th>
       <th>Marka</th>
       <th>Renk</th>
-      <th>Model Yılı</th>
-      <th>Günlük Fiyat</th>
-      <th>Açıklama</th>
-    </tr>
+      <th>Kiralama Ücreti</th>
   </thead>
-  <tr *ngFor="let car of cars">
-    <td>{{ car.carId }}</td>
-    <td>{{ car.carName }}</td>
-    <td>{{ car.brandName }}</td>
-    <td>{{ car.colorName }}</td>
-    <td>{{ car.modelYear }}</td>
-    <td>{{ car.dailyPrice }}</td>
-    <td>{{ car.description }}</td>
+  <tr *ngFor="let car of cars" (click)='goToImage(car.carId)'>
+      <td>{{car.carId}}</td>
+      <td>{{car.brandName}}</td>
+      <td>{{car.colorName}}</td>
+      <td>{{car.dailyPrice}}</td>
   </tr>
 </table>
