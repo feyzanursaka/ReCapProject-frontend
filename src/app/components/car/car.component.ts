@@ -53,8 +53,8 @@ export class CarComponent implements OnInit {
       this.dataLoaded = true;
     })   
   }
-  goToImage(carId:number){
-    this.router.navigate(['./carimage',carId])
+  goToCarDetail(carId:number){
+    this.router.navigate(['./cardetail',carId])
   }
 
 }

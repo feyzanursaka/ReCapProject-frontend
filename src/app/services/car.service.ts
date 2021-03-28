@@ -27,4 +27,8 @@ export class CarService {
     let newPath=this.apiUrl+"cars/getcardetailsbycolorid?colorId="+colorId
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
+  getCarDetailsByCarId(carId:number): Observable<ListResponseModel<Car>> {
+    let newPath=this.apiUrl+"cars/getcardetailsbycarid?carId="+carId
+    return this.httpClient.get<ListResponseModel<Car>>(newPath);
+  }
 }
