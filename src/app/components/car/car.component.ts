@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 
@@ -12,10 +13,12 @@ export class CarComponent implements OnInit {
 
   cars: Car[] = [];
   dataLoaded=false;
+  filterText="";
 
   constructor(private carService: CarService,
     private activatedRoute:ActivatedRoute,
-    private router:Router) {}
+    private router:Router,
+    private toastrService:ToastrService) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
