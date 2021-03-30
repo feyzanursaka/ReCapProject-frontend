@@ -22,7 +22,9 @@ export class CarComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
-      if(params["brandId"]){
+      if(params["brandId"] && params["colorId"]){
+        this.getCarsBySelect(params["brandId"],params["colorId"])
+      }else if(params["brandId"]){
         this.getCarsByBrand(params["brandId"]);
       }else if(params["colorId"]){
         this.getCarsByColor(params["colorId"]);
@@ -56,6 +58,16 @@ export class CarComponent implements OnInit {
       this.dataLoaded = true;
     })   
   }
+  getCarsBySelect(brandId:number, colorId:number){
+    this.carService.getCarsBySelect(brandId,colorId).subscribe(response=>{
+       this.cars=response.data
+       this.dataLoaded=true;
+      if(this.cars.length == 0){
+         this.toastrService.info('Arama sonucunuza ait bir araç bulunmamaktadır.', 'Arama Sonucu');
+      }
+     })
+   }
+
   goToCarDetail(carId:number){
     this.router.navigate(['./cardetail',carId])
   }

@@ -17,6 +17,9 @@ import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
+import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
+import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
+import { CarFilterComponent } from './components/car-filter/car-filter.component';
 
 
 @NgModule({
@@ -31,6 +34,10 @@ import { ToastrModule } from 'ngx-toastr';
     CarDetailComponent,
     VatAddedPipe,
     FilterPipe,
+    BrandFilterPipePipe,
+    ColorFilterPipePipe,
+    CarFilterComponent,
+   
   ],
   imports: [
     BrowserModule,
