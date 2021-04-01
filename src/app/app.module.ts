@@ -1,8 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from "@angular/forms"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import {ScrollingModule} from '@angular/cdk/scrolling';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +21,10 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
 import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
-import { CarFilterComponent } from './components/car-filter/car-filter.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PaymentComponent } from './components/payment/payment.component';
+import { CategoryComponent } from './components/category/category.component';
+
 
 
 @NgModule({
@@ -36,18 +41,26 @@ import { CarFilterComponent } from './components/car-filter/car-filter.component
     FilterPipe,
     BrandFilterPipePipe,
     ColorFilterPipePipe,
-    CarFilterComponent,
+    PaymentComponent,
+    CategoryComponent,
+    
    
   ],
   imports: [
+  
     BrowserModule,
+    ScrollingModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
-    })
+    }),
+    NgbModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]

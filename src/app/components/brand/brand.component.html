@@ -1,17 +1,14 @@
-<ul class="list-group">
-  <li [class]="getAllBrandClass()" routerLink="/cars">Tüm Arabalar</li>
+<div class="mb-3">
+  <label for="filterText" class="form-label"></label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+    placeholder="Marka Ara" />
+</div>
 
-  <div class="mb-3">
-    <label for="filterText" class="form-label">Marka Ara</label>
-    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
-      placeholder="arama ifadesi giriniz" />
-  </div>
-  <div *ngIf="filterText.length > 2" class="alert alert-success">
-    {{ filterText }} aradınız.
-  </div>
-  
-  <li (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.id}}" 
-  *ngFor="let brand of brands| brandFilterPipe: filterText"
-    [class]="getCurrentBrandClass(brand)">
-    {{ brand.brandName| uppercase }}</li>
-</ul>
+<cdk-virtual-scroll-viewport itemSize="1" class="container">
+  <ul class="list-group">
+    <li (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.id}}"
+      *cdkVirtualFor="let brand of brands| brandFilterPipe: filterText" class="brands" [class]="getCurrentBrandClass(brand)">
+      {{ brand.brandName| uppercase }}</li>
+  </ul>
+</cdk-virtual-scroll-viewport>
+

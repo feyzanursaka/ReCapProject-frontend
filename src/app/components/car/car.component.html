@@ -2,12 +2,10 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
-<app-car-filter></app-car-filter>
-
 <div class="mb-3">
-  <label for="filterText" class="form-label">Ürün Ara</label>
+  <label for="filterText" class="form-label"></label>
   <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
-    placeholder="arama ifadesi giriniz" />
+    placeholder="aramak istediğiniz markayı veya rengi giriniz" />
 </div>
 <div *ngIf="filterText.length > 2" class="alert alert-success">
   {{ filterText }} aradınız.
