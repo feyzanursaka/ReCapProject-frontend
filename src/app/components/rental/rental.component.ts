@@ -44,10 +44,7 @@ export class RentalComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
-  // event.toISOString()
-  //> "2011-10-05T14:48:00.000Z"
-  // event.toISOString().slice(0,10)
-  //> "2011-10-05"
+
   getRentMinDate() {
     this.minDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     return this.minDate;
