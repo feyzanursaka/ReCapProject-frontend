@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from "@angular/forms"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import {ScrollingModule} from '@angular/cdk/scrolling';
 
@@ -25,6 +25,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CategoryComponent } from './components/category/category.component';
 
+import { BrandListComponent } from './components/brand-list/brand-list.component';
+import { ColorListComponent } from './components/color-list/color-list.component';
+import { CarListComponent } from './components/car-list/car-list.component';
+
 
 
 @NgModule({
@@ -43,6 +47,10 @@ import { CategoryComponent } from './components/category/category.component';
     ColorFilterPipePipe,
     PaymentComponent,
     CategoryComponent,
+   
+    BrandListComponent,
+    ColorListComponent,
+    CarListComponent,
     
    
   ],
@@ -54,6 +62,7 @@ import { CategoryComponent } from './components/category/category.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),

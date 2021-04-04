@@ -16,7 +16,7 @@
   <cdk-virtual-scroll-viewport itemSize="1" class="container">
     <ul class="list-group">
       <li (click)="setCurrentBrand(brand)"
-        *cdkVirtualFor="let brand of brands| brandFilterPipe: filterTextBrand" 
+        *ngFor="let brand of brands| brandFilterPipe: filterTextBrand" 
         [class]="getSelectedBrand(brand)"
         class="categories" 
         [class]="getCurrentBrandClass(brand)" 

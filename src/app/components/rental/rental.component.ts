@@ -70,7 +70,7 @@ export class RentalComponent implements OnInit {
 
   createRental() {
     let MyRental: Rental = {
-      carId: this.car.carId,
+      carId: this.car.id,
       brandName: this.car.brandName,
       colorName: this.car.colorName,
       carModelYear: this.car.modelYear,

@@ -6,7 +6,7 @@ export interface Rental{
     firstName?:string,
     lastName?:string,
     companyName?:string,
-    carModelYear:string,
+    carModelYear:number,
     carDailyPrice:number,
     carDescription:string,
     rentDate:Date,
