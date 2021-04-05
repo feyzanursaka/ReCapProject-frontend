@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import {ScrollingModule} from '@angular/cdk/scrolling';
@@ -28,6 +28,8 @@ import { CategoryComponent } from './components/category/category.component';
 import { BrandListComponent } from './components/brand-list/brand-list.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
 import { CarListComponent } from './components/car-list/car-list.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 
@@ -51,6 +53,7 @@ import { CarListComponent } from './components/car-list/car-list.component';
     BrandListComponent,
     ColorListComponent,
     CarListComponent,
+    LoginComponent,
     
    
   ],
@@ -71,7 +74,9 @@ import { CarListComponent } from './components/car-list/car-list.component';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
