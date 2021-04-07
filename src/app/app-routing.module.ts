@@ -8,9 +8,11 @@ import { CarListComponent } from './components/car-list/car-list.component';
 import { CarComponent } from './components/car/car.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
 import { LoginComponent } from './components/login/login.component';
+
 import { PaymentComponent } from './components/payment/payment.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { LoginGuard } from './guards/login.guard';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:CarComponent},
@@ -26,7 +28,8 @@ const routes: Routes = [
   {path:"brand-list", component:BrandListComponent,canActivate:[LoginGuard]},
   {path:"color-list", component:ColorListComponent,canActivate:[LoginGuard]},
 
-  {path:"login", component:LoginComponent}
+  {path:"login", component:LoginComponent},
+  {path:"register", component:RegisterComponent}
   
 ];
 
