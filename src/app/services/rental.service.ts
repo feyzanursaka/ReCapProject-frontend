@@ -30,4 +30,8 @@ export class RentalService {
     let newPath = this.apiUrl + 'rentals/iscaravailable?carId=' + carId;
     return this.httpClient.get<ResponseModel>(newPath);
   }
+  checkFindeksScoreSufficiency(rental: Rental): Observable<ResponseModel> {
+    let newPath = this.apiUrl + 'rentals/checkfindeksscoresufficiency';
+    return this.httpClient.post<ResponseModel>(newPath , rental);
+  }
 }

@@ -6,6 +6,7 @@ import { Car } from 'src/app/models/car';
 import { Customer } from 'src/app/models/customer';
 import { Rental } from 'src/app/models/rental';
 import { CustomerService } from 'src/app/services/customer.service';
+import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
   selector: 'app-rental',
@@ -15,6 +16,10 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class RentalComponent implements OnInit {
   customers: Customer[];
+
+  checkFindeks:Boolean;
+  findeksMessage:string;
+
   customerId: number;
   rentDate: Date;
   returnDate: Date;
@@ -27,6 +32,7 @@ export class RentalComponent implements OnInit {
   firstDateSelected: boolean = false;
 
   constructor(
+    private rentalService: RentalService,
     private customerService: CustomerService,
     private router: Router,
     private toastrService: ToastrService,
@@ -67,6 +73,23 @@ export class RentalComponent implements OnInit {
     );
     return this.maxDate;
   }
+  checkFindeksScoreSufficiency(rental: Rental){
+    this.rentalService.checkFindeksScoreSufficiency(rental).subscribe((response) => {
+      this.checkFindeks=true;
+      this.toastrService.success(response.message,"Başarılı")
+      this.router.navigate(['/payment/', JSON.stringify(rental)]);
+      this.toastrService.info(
+        'Ödeme sayfasına yönlendiriliyorsunuz...',
+        'Ödeme İşlemleri'
+      );
+      
+    },responseError=>{
+      this.checkFindeks=false;
+      this.toastrService.error(responseError.message,"Findeks yetersiz")
+      
+    });
+    
+  }
 
   createRental() {
     let MyRental: Rental = {
@@ -80,15 +103,15 @@ export class RentalComponent implements OnInit {
       returnDate: this.returnDate,
       customerId: this.customerId,
     };
+    
+  
     if (MyRental.customerId == undefined || MyRental.rentDate == undefined) {
       this.toastrService.error("Eksik bilgi girdiniz","Bilgilerinizi kontrol edin")
-    } else{
-      this.router.navigate(['/payment/', JSON.stringify(MyRental)]);
-      this.toastrService.info(
-        'Ödeme sayfasına yönlendiriliyorsunuz...',
-        'Ödeme İşlemleri'
-      );
+    }else{
+      this.checkFindeksScoreSufficiency(MyRental);
     }
+    
+   
   }
 
   onChangeEvent(event: any) {
