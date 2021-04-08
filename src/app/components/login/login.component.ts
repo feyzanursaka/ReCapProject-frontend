@@ -3,6 +3,7 @@ import {FormGroup,FormBuilder,Validators,FormControl  } from "@angular/forms";
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
      private formBuilder:FormBuilder,
      private router: Router,
      private authService:AuthService, 
-     private toastrService:ToastrService
+     private toastrService:ToastrService,
+     private localStorageService: LocalStorageService
      
      ) { }
 
@@ -39,7 +41,7 @@ export class LoginComponent implements OnInit {
 
       this.authService.login(loginModel).subscribe(response=>{
         this.toastrService.info(response.message)
-        localStorage.setItem("token",response.data.token)
+        this.localStorageService.add("token",response.data.token)
         this.router.navigate(['/car-list']);
       },responseError=>{
         //console.log(responseError)
