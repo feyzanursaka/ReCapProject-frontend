@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <div class="content">
   <div class="col-md-12">
     <div class="panel-footer text-center">
@@ -43,7 +44,7 @@
 
           <td>
             <button type="button" class="btn btn-warning btn-xs formButton" data-bs-toggle="modal"
-              data-bs-target="#updateCarModal" (click)="setSelectedCarToUpdate(car)" style="margin-right: 16px">
+              data-bs-target="#updateCarModal" (click)="setSelectedCarToUpdate(car)" style="margin-right: 1px">
               <i class="fas fa-pen"></i>
             </button>
             <button type="button" class="btn btn-danger btn-xs formButton" data-bs-toggle="modal"
@@ -72,31 +73,23 @@
 
           <div class="mb-3">
             <label for="brandId">Marka</label>
-
             <div class="form-group">
-
               <select formControlName="brandId">
                 <option *ngFor="let brand of brands" [ngValue]="brand.id">
                   {{ brand.brandName }}
                 </option>
               </select>
-
             </div>
           </div>
 
-
-
           <div class="mb-3">
             <label for="colorId">Renk</label>
-
             <div class="form-group">
-
               <select formControlName="colorId">
                 <option *ngFor="let color of colors" [ngValue]="color.id">
                   {{ color.colorName }}
                 </option>
               </select>
-
             </div>
           </div>
 
@@ -124,10 +117,7 @@
     </div>
   </div>
 </div>
-
-
 <!---->
-
 <div class="modal fade" id="updateCarModal" tabindex="-1" aria-labelledby="updateCarModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -147,29 +137,23 @@
 
           <div class="mb-3">
             <label for="brandId">Marka</label>
-
             <div class="form-group">
-
               <select formControlName="brandId">
                 <option *ngFor="let brand of brands" [ngValue]="brand.id">
                   {{ brand.brandName }}
                 </option>
               </select>
-
             </div>
           </div>
 
           <div class="mb-3">
             <label for="colorId">Renk</label>
-
             <div class="form-group">
-
               <select formControlName="colorId">
                 <option *ngFor="let color of colors" [ngValue]="color.id">
                   {{ color.colorName }}
                 </option>
               </select>
-
             </div>
           </div>
 
@@ -192,10 +176,8 @@
       </div>
 
       <div class="modal-footer">
-
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
         <button class="btn btn-success" (click)="updateCar()" data-bs-dismiss="modal">Güncelle</button>
-
       </div>
 
     </div>
@@ -211,25 +193,19 @@
   <div class="example-button-container">
   <div class="modal-dialog">
     <div class="modal-content">
+
       <div class="modal-header">
         <h2 class="modal-title" id="DeleteCarTitle">Araç Sil</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
       <div class="modal-body">
-
-   
-
           <h3>Silme işlemini onaylıyor musunuz?</h3>
-
-
-        
       </div>
 
       <div class="modal-footer">
-
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
         <button class="btn btn-success" (click)="deleteCar()" data-bs-dismiss="modal">Sil</button>
-
       </div>
 
     </div>
