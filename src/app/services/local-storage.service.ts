@@ -1,21 +1,28 @@
 import { Injectable } from '@angular/core';
+import { Customer } from '../models/customer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
-
   localStorage: Storage;
+  currentCustomer: string = 'currentCustomer';
 
-  constructor() {
+  constructor() { 
     this.localStorage = window.localStorage;
   }
 
-  get(key : string){
-    return this.localStorage.getItem(key);
+  get(value:string):string{
+    var result = this.localStorage.getItem(value);
+    if (result) {
+      return result
+    }else{
+      return "";
+    }
   }
 
-  add(key: string, value: string){
+
+  set(key: string, value: string){
     this.localStorage.setItem(key,value);
   }
 
@@ -25,12 +32,5 @@ export class LocalStorageService {
 
   clean(){
     this.localStorage.clear();
-  }
-
-  checkExistsOrNot(value: string): boolean{
-    if (localStorage.getItem(value) !== null && localStorage.getItem(value) !== undefined) {
-      return true;
-    }
-    return false;
   }
 }

@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div style="margin-top: 150px;" class="card">
+
+  <!--<img src="https://avatars.githubusercontent.com/u/43739624?v=4" style="width:100%" >-->
+
+  <h1>{{user?.firstName}} {{user?.lastName}}</h1>
+  <p class="title">{{user?.email}}</p>
+  <p>Findeks : {{findeks}}</p>
+ 
+  <p><button class="btn btn-warning btn-xs formButton" data-bs-toggle="modal" data-bs-target="#updateUserModal"> Bilgileri Güncelle</button></p>
+</div>
+
+<div class="modal fade" id="updateUserModal" tabindex="-1" aria-labelledby="updateUserModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title"  id="updateUserTitle">Kullanıcı Bilgilerini Güncelle</h2>
+        
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup]="userUpdateForm" >
+
+          <div class="row">
+            <div class="col-8">
+              <label for="userId">Id</label>
+              <input type="number" class="form-control" *ngIf="currentUserId" id="id" name="id" formControlName="id" value="{{currentUserId}}" readonly>
+            </div>
+          </div>
+            
+            <div class="row">
+              <div class="col-12">
+                <label for="firstName">İsim</label>
+                <input type="text" class="form-control" id="firstName" formControlName="firstName">
+              </div>
+            </div>
+           
+
+           <div class="row">
+              <div class="col-12">
+                <label for="lastName">Soyisim</label>
+                <input type="text" class="form-control" id="lastName" formControlName="lastName">
+              </div>
+            </div>    
+
+              <div class="row">
+              <div class="col-12">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" formControlName="email">
+              </div>
+            </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+        <button class="btn btn-primary" (click)="updateUser()" data-bs-dismiss="modal" >Güncelle</button>
+      </div>
+
+    </div>
+  </div>
+</div>

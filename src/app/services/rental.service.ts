@@ -23,7 +23,7 @@ export class RentalService {
   }
   addRental(rental: Rental) {
     let newPath = this.apiUrl + 'rentals/add';
-    this.httpClient.post(newPath, rental).subscribe();
+    return this.httpClient.post<ResponseModel>(newPath, rental);
   }
 
   isCarAvailable(carId: number): Observable<ResponseModel> {

@@ -32,4 +32,24 @@ export class FakecardService {
     let newPath = this.apiUrl + "fakecards/update";
     this.httpClient.put(newPath,fakeCard)
   }
+
+  getAllByUserId(userId: number): Observable<ListResponseModel<FakeCard>> {
+    return this.httpClient.get<ListResponseModel<FakeCard>>(
+      environment.apiUrl + 'fakecards/getallbyuserid?userId=' + userId
+    );
+  }
+
+  add(creditCard: FakeCard): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(
+      environment.apiUrl + 'fakecards/add',
+      creditCard
+    );
+  }
+
+  delete(creditCard: FakeCard): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(
+      environment.apiUrl + 'fakecards/delete',
+      creditCard
+    );
+  }
 }

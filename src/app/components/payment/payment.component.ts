@@ -5,6 +5,7 @@ import { Car } from 'src/app/models/car';
 import { Customer } from 'src/app/models/customer';
 import { FakeCard } from 'src/app/models/fakeCard';
 import { Rental } from 'src/app/models/rental';
+import { AuthService } from 'src/app/services/auth.service';
 import { CarService } from 'src/app/services/car.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import { FakecardService } from 'src/app/services/fakecard.service';
@@ -37,7 +38,8 @@ export class PaymentComponent implements OnInit {
     private router: Router,
     private toastrService: ToastrService,
     private rentalService: RentalService,
-    private fakeCardService: FakecardService
+    private fakeCardService: FakecardService,
+    private authService:AuthService,
   ) {}
 
   ngOnInit(): void {
@@ -50,6 +52,7 @@ export class PaymentComponent implements OnInit {
       }
     });
   }
+  
 
   getCustomerDetailById(customerId: number) {
     this.customerService.getCustomerById(customerId).subscribe((response) => {
@@ -59,74 +62,70 @@ export class PaymentComponent implements OnInit {
   }
 
   getCarDetail() {
+
     this.carService
       .getCarDetailsByCarId(this.rental.carId)
       .subscribe((response) => {
         this.cars = response.data[0];
         this.paymentCalculator();
       });
+
   }
 
   paymentCalculator() {
     if (this.rental.returnDate != null) {
+
       var date1 = new Date(this.rental.returnDate.toString());
       var date2 = new Date(this.rental.rentDate.toString());
       var difference = date1.getTime() - date2.getTime();
-
-      //zamanFark değişkeni ile elde edilen saati güne çevirmek için aşağıdaki yöntem kullanılabilir.
       var numberOfDays = Math.ceil(difference / (1000 * 3600 * 24));
-
       this.amountOfPayment = numberOfDays * this.cars.dailyPrice;
-      if (this.amountOfPayment <= 0) {
-        this.router.navigate(['/cars']);
-        this.toastrService.error(
-          'Araç listesine yönlendiriliyorsunuz',
-          'Hatalı işlem'
-        );
-      }
+      
     }
   }
 
   async rentACar() {
+
     let fakeCard: FakeCard = {
+
       id:this.id,
-      moneyInTheCard:this.moneyInTheCard,
+      userId:this.authService.getUserId(),
       nameOnTheCard: this.nameOnTheCard,
       cardNumber: this.cardNumber,
       expirationDate: this.expirationDate,
       cardCvv: this.cardCvv,
+
     };
+   
     this.cardExist = await this.isCardExist(fakeCard);
+
     if (this.cardExist) {
-      this.fakeCard = await this.getFakeCardByCardNumber(this.cardNumber);
-      if (this.fakeCard.moneyInTheCard >= this.amountOfPayment) {
-        this.fakeCard.moneyInTheCard =
-          this.fakeCard.moneyInTheCard - this.amountOfPayment;
-        this.updateCard(fakeCard);
+
         this.rentalService.addRental(this.rental);
         this.toastrService.success('Arabayı kiraladınız', 'Işlem başarılı');
-      } else {
-        this.toastrService.error(
-          'Kartınızda yeterli para bulunmamaktadır',
-          'Hata'
-        );
-      }
+      
     } else {
-      this.toastrService.error('Bankanız bilgilerinizi onaylamadı', 'Hata');
+
+      this.askSaveCard(fakeCard);
+
+    }
+  }
+
+  askSaveCard(fakeCard: FakeCard) {
+
+    if (window.confirm('Kartınız kayıtlı değil kayıt edilsin mi ?')) {
+        
+      this.fakeCardService.add(fakeCard).subscribe((response) => {
+      this.toastrService.success("Kaydedildi!");  
+      },responseError => {
+        this.toastrService.error(responseError.error.message);
+      });
+
     }
   }
 
   async isCardExist(fakeCard: FakeCard) {
-    return (await this.fakeCardService.isCardExist(fakeCard).toPromise())
-      .success;
+    return (await this.fakeCardService.isCardExist(fakeCard).toPromise()).success;
   }
 
-  async getFakeCardByCardNumber(cardNumber: string) {
-    return (await this.fakeCardService.getCardByNumber(cardNumber).toPromise())
-      .data[0];
-  }
-
-  updateCard(fakeCard: FakeCard) {
-    this.fakeCardService.updateCard(fakeCard);
-  }
 }
