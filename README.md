@@ -1,3 +1,15 @@
+# Recap Images
+
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/1.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/2.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/3.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/4.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/5.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/6.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/7.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/8.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/9.PNG">
+
 # Recap
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
