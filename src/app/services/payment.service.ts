@@ -17,9 +17,7 @@ export class PaymentService {
 
   addPayment(payment: Payment): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(
-      environment.apiUrl + 'payments/add',
-      payment
-    );
+      environment.apiUrl + 'payments/add', payment);
   }
 
   getRental() {
