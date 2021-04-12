@@ -15,7 +15,7 @@
   
   <cdk-virtual-scroll-viewport itemSize="1" class="container">
     <ul class="list-group">
-      <li (click)="setCurrentBrand(brand)"
+      <li appHighlight (click)="setCurrentBrand(brand)"
         *ngFor="let brand of brands| brandFilterPipe: filterTextBrand" 
         [class]="getSelectedBrand(brand)"
         class="categories" 
@@ -34,7 +34,7 @@
   
   <cdk-virtual-scroll-viewport itemSize="1" class="container">
   <ul class="list-group">
-    <li (click)="setCurrentColor(color)"
+    <li appHighlight (click)="setCurrentColor(color)"
       *ngFor="let color of colors| colorFilterPipe: filterTextColor" 
       [class]="getSelectedColor(color)"
       class="categories" 

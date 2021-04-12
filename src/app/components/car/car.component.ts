@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-car',
@@ -10,7 +11,8 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
-
+  
+  imageBaseUrl=environment.baseUrl;
   cars: Car[] = [];
   dataLoaded=false;
   filterText="";
@@ -43,6 +45,7 @@ export class CarComponent implements OnInit {
   getCarDetails() {
     this.carService.getCarDetails().subscribe(response=>{
       this.cars=response.data
+      console.log(this.cars[0].imagePath)
       this.dataLoaded=true;
     })
   }

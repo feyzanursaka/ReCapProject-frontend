@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
+import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,6 +13,7 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
+
   constructor(private formBuilder:FormBuilder, 
     private authService:AuthService,
     private localStorageService:LocalStorageService,
@@ -50,7 +51,7 @@ export class LoginComponent implements OnInit {
         }
       })
     }else{
-      this.toastrService.error("Please Fill The Form","Error")
+      this.toastrService.error("Boş Alanları Doldurunuz","Error")
     }
   }
 

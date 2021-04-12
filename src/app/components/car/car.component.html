@@ -11,20 +11,17 @@
   {{ filterText }} aradınız.
 </div>
 
-<table class="table">
-  <thead>
-    <th>Id</th>
-    <th>Marka</th>
-    <th>Renk</th>
-
-  </thead>
-  <tbody>
-    <tr appHighlight *ngFor="let car of cars | filterPipe: filterText" routerLink="/cars/cardetail/{{car.id}}">
-
-      <td>{{car.id}}</td>
-      <td>{{car.brandName| uppercase }}</td>
-      <td>{{car.colorName| uppercase }}</td>
-
-    </tr>
-  </tbody>
-</table>
+<div class="row" *ngIf="dataLoaded==true">
+  <div *ngFor="let car of cars | filterPipe: filterText" class="col-lg-4 col-md-6 mb-4">
+    <div appHighlight class="card" style="width: 16rem; height: 24rem;">
+      <img class="card-img-top" src="{{ imageBaseUrl }}{{car.imagePath}}" alt="Card image cap" style="width: 16rem; height: 14rem;">
+      <div class="card-body">
+        <div style="text-align:center"><h2 class="card-title">{{car.brandName| uppercase}} - {{car.colorName| uppercase }}</h2>
+        <p class="card-text"> Günlük Fiyat : {{car.dailyPrice | currency}}</p>
+      </div><br/>
+        <button type="button" class="btn btn-outline-dark" routerLink="/cars/cardetail/{{car.id}}" style="width: 13.7rem;">Detay</button>
+      </div>
+    </div>
+    
+  </div>
+</div>

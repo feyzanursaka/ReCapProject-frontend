@@ -59,6 +59,8 @@ import { HighlightDirective } from './highlight.directive';
     UserComponent,
 
     HighlightDirective,
+
+ 
     
    
   ],
