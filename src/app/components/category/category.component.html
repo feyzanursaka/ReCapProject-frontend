@@ -1,54 +1,40 @@
+<table>
+  <thead>
+    <tr>
+      <th><button routerLink="/cars/filter/{{ currentBrand.id }}/{{ currentColor.id }}" style="width: 6.3rem;"
+          type="button" class="btn btn-outline-dark">Filtrele</button></th>
+      <th><button routerLink="/cars" type="button" style="width: 6.3rem;" class="btn btn-outline-dark">Temizle</button>
+      </th>
+    </tr>
+  </thead>
+</table>
 
 
-  <div class="d-grid gap-2 d-md-block">
-    <button routerLink="/cars/filter/{{ currentBrand.id }}/{{ currentColor.id }}" type="button" class="btn btn-outline-dark">Filtrele</button>
-    <button routerLink="/cars" type="button" class="btn btn-outline-dark">Temizle</button>
-  </div>
-  
- <!---------------------------brand--------------------------------->
+<!---------------------------brand--------------------------------->
 
 <div class="mb-3">
-    <label for="filterTextBrand" class="form-label"></label>
-    <input type="text" [(ngModel)]="filterTextBrand" class="form-control" id="filterTextBrand"
-      placeholder="Marka Ara" />
-  </div>
-  
-  <cdk-virtual-scroll-viewport itemSize="1" class="container">
-    <ul class="list-group">
-      <li appHighlight (click)="setCurrentBrand(brand)"
-        *ngFor="let brand of brands| brandFilterPipe: filterTextBrand" 
-        [class]="getSelectedBrand(brand)"
-        class="categories" 
-        [class]="getCurrentBrandClass(brand)" 
-        [value]="brand.id">
-        {{ brand.brandName| uppercase }}</li>
-    </ul>
-  </cdk-virtual-scroll-viewport>
+  <label for="filterTextBrand" class="form-label"></label>
+  <input type="text" [(ngModel)]="filterTextBrand" class="form-control" id="filterTextBrand" placeholder="Marka Ara" />
+</div>
 
-  <!---------------------------color--------------------------------->
-  <div class="mb-3">
-    <label for="filterTextColor" class="form-label"></label>
-    <input type="text" [(ngModel)]="filterTextColor" class="form-control" id="filterTextColor"
-      placeholder="Renk Ara" />
-  </div>
-  
-  <cdk-virtual-scroll-viewport itemSize="1" class="container">
+<cdk-virtual-scroll-viewport itemSize="1" class="container">
   <ul class="list-group">
-    <li appHighlight (click)="setCurrentColor(color)"
-      *ngFor="let color of colors| colorFilterPipe: filterTextColor" 
-      [class]="getSelectedColor(color)"
-      class="categories" 
-      [class]="getCurrentColorClass(color)"
-      [value]="color.id">
+    <li appHighlight (click)="setCurrentBrand(brand)" *ngFor="let brand of brands| brandFilterPipe: filterTextBrand"
+      [class]="getSelectedBrand(brand)" class="categories" [class]="getCurrentBrandClass(brand)" [value]="brand.id">
+      {{ brand.brandName| uppercase }}</li>
+  </ul>
+</cdk-virtual-scroll-viewport>
+
+<!---------------------------color--------------------------------->
+<div class="mb-3">
+  <label for="filterTextColor" class="form-label"></label>
+  <input type="text" [(ngModel)]="filterTextColor" class="form-control" id="filterTextColor" placeholder="Renk Ara" />
+</div>
+
+<cdk-virtual-scroll-viewport itemSize="1" class="container">
+  <ul class="list-group">
+    <li appHighlight (click)="setCurrentColor(color)" *ngFor="let color of colors| colorFilterPipe: filterTextColor"
+      [class]="getSelectedColor(color)" class="categories" [class]="getCurrentColorClass(color)" [value]="color.id">
       {{ color.colorName| uppercase }}</li>
   </ul>
-  </cdk-virtual-scroll-viewport>
-
-
-
-
-
-
-
-
-
+</cdk-virtual-scroll-viewport>

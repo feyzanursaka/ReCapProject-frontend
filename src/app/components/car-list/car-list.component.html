@@ -2,7 +2,7 @@
 <div class="content">
   <div class="col-md-12">
     <div class="panel-footer text-center">
-      <span class="d-block p-1 bg-dark text-white" style="margin-top: 10px">
+      <span class="d-block p-1 bg-dark text-white" style="margin-top: 10px; height: 2.6rem;">
         <h3>Araçlar</h3>
       </span>
     </div>
@@ -15,20 +15,15 @@
       width="100%">
       <thead>
         <tr>
-          <th>Id</th>
-          <th>Araba</th>
-          <th>Renk</th>
-          <th>Model Yılı</th>
-          <th>Günlük Fiyat</th>
-          <th>Açıklama</th>
+          <th><h3 style="font-weight:bold;">Id</h3></th>
+            <th><h3 style="font-weight:bold;">Araba</h3></th>
+            <th><h3 style="font-weight:bold;">Renk</h3></th>
+            <th><h3 style="font-weight:bold;">Model Yılı</h3></th>
+            <th><h3 style="font-weight:bold;">Günlük Fiyat</h3></th>
+            <th><h3 style="font-weight:bold;">Açıklama</h3></th>
 
           <th style="text-align: center; width: 100px">
-
-            <button type="button" data-func="dt-add" class="btn btn-success btn-xs dt-add formButton"
-              data-bs-toggle="modal" data-bs-target="#addCarModal">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true">Ekle</span>
-            </button>
-
+            <button type="button" style="border-radius:40px/40px; width: 3rem; height: 3em;" data-func="dt-add" class="btn btn-outline-success btn-xs dt-add formButton" data-bs-toggle="modal" data-bs-target="#addCarModal"><h1>+</h1></button>
           </th>
         </tr>
       </thead>
@@ -39,15 +34,15 @@
           <td>{{ car.brandName }}</td>
           <td>{{ car.colorName }}</td>
           <td>{{ car.modelYear }}</td>
-          <td>{{ car.dailyPrice }}</td>
+          <td>{{ car.dailyPrice | currency}}</td>
           <td>{{ car.description }}</td>
 
           <td>
-            <button type="button" class="btn btn-warning btn-xs formButton" data-bs-toggle="modal"
+            <button type="button" class="btn btn-outline-warning btn-xs formButton" data-bs-toggle="modal"
               data-bs-target="#updateCarModal" (click)="setSelectedCarToUpdate(car)" style="margin-right: 1px">
               <i class="fas fa-pen"></i>
             </button>
-            <button type="button" class="btn btn-danger btn-xs formButton" data-bs-toggle="modal"
+            <button type="button" class="btn btn-outline-danger btn-xs formButton" data-bs-toggle="modal"
               data-bs-target="#deleteCarModal" (click)="setSelectedCarToDelete(car)">
               <i class="fas fa-trash-alt"></i>
             </button>
@@ -64,7 +59,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="AddBrandTitle">Marka Ekle</h2>
+        <h2 class="modal-title" id="AddBrandTitle">Araç Ekle</h2>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -138,8 +133,8 @@
           <div class="mb-3">
             <label for="brandId">Marka</label>
             <div class="form-group">
-              <select formControlName="brandId">
-                <option *ngFor="let brand of brands" [ngValue]="brand.id">
+              <select formControlName="brandId" >
+                <option *ngFor="let brand of brands" [ngValue]="brand.id" >
                   {{ brand.brandName }}
                 </option>
               </select>
@@ -159,17 +154,17 @@
 
           <div class="col-8">
             <label for="modelYear">Model</label>
-            <input type="number" class="form-control" id="updatemodelYear" formControlName="modelYear">
+            <input type="number" class="form-control" id="updatemodelYear" formControlName="modelYear"  value="{{selectedCar?.modelYear}}">
           </div>
 
           <div class="col-8">
             <label for="dailyPrice">Günlük Fiyat</label>
-            <input type="number" class="form-control" id="updatedailyPrice" formControlName="dailyPrice">
+            <input type="number" class="form-control" id="updatedailyPrice" formControlName="dailyPrice" value="{{selectedCar?.dailyPrice}}">
           </div>
 
           <div class="col-8">
             <label for="description">Açıklama</label>
-            <input type="text" class="form-control" id="updatedescription" formControlName="description">
+            <input type="text" class="form-control" id="updatedescription" formControlName="description" value="{{selectedCar?.description}}">
           </div>
 
         </form>
