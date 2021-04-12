@@ -19,7 +19,7 @@
 
   </thead>
   <tbody>
-    <tr *ngFor="let car of cars | filterPipe: filterText" routerLink="/cars/cardetail/{{car.id}}">
+    <tr appHighlight *ngFor="let car of cars | filterPipe: filterText" routerLink="/cars/cardetail/{{car.id}}">
 
       <td>{{car.id}}</td>
       <td>{{car.brandName| uppercase }}</td>

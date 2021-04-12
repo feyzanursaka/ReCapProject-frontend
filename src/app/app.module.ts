@@ -31,6 +31,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 
 import { UserComponent } from './components/user/user.component';
+import { HighlightDirective } from './highlight.directive';
 
 
 
@@ -56,6 +57,8 @@ import { UserComponent } from './components/user/user.component';
     RegisterComponent,
 
     UserComponent,
+
+    HighlightDirective,
     
    
   ],
