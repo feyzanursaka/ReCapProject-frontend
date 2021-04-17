@@ -9,6 +9,13 @@
 <img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/7.PNG">
 <img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/8.PNG">
 <img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/9.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/10.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/11.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/12.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/13.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/14.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/15.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/16.PNG">
 
 # Recap
 
