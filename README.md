@@ -1,15 +1,15 @@
 # Recap Images
 
 <img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/1.PNG">
-<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/2.PNG">
-<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/3.PNG">
-<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/4.PNG">
-<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/5.PNG">
-<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/6.PNG">
-<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/7.PNG">
-<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/8.PNG">
-<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/9.PNG">
-<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/10.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/2.png">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/3.png">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/4.png">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/5.png">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/6.png">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/7.png">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/8.png">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/9.png">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/10.png">
 <img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/11.PNG">
 <img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/12.PNG">
 <img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/13.PNG">
