@@ -20,7 +20,7 @@
 <img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/13.PNG">
 <img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/14.PNG">
 <img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/15.PNG">
-<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/16.PNG">
+<img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/16.png">
 
 # Recap
 
