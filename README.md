@@ -1,3 +1,8 @@
+# Projenin Konusu 
+
+<h5>İstenilen arabayı kiralamaya yarar. 
+    Kişi giriş yapmamışsa arabaların bulunduğu sayfayı (componenti) görebilir. Her arabanın detay sayfası vardır. Giriş Yapmamış olan kişi detaylara gidebilir fakat kiralama yapabilmek için giriş yapması gerekir. Kayıt Ol ve Giriş Yap sayfaları mevcuttur. Giriş yapan kişi kiralama işlemini gerçekleştirmek için findeks puanının yeterli olması gerekir. Eğer yeterliyse ödeme sayfasına yönlendirilir. Eğer Kredi Kartı mevcutsa işlem başarılı olur değilse kredi kartı eklenir ve ödeme gerçekleştirilir. Giriş yapan kişi yeni araba, marka ve renk ekleme, silme ve güncelleme işlemlerini ayrıyeten profilini güncelleme işlemini gerçekleştirebilir.</h5>
+
 # Recap Images
 
 <img src="https://github.com/feyzanursaka/ReCapProject-frontend/blob/master/images/1.PNG">
